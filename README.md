@@ -19,13 +19,24 @@ _The structured filter notation for API queries._
 * A notation that is programming language agnostic and evolutionary. A notation can work with any programming language and can evolve and adapt to the ever-changing technical world.
 
 ## Quick Start
-first_name((eq))john
 
-first_name((starts))jo
+## Basic examples
+first_name((eq))john - Return all records where the first name equals John (case-insensitive)
 
-first_name|last_name((ends))doe
+first_name((starts))jo - Return all records where the first name starts with Jo (case-insensitive)
 
-first_name((nempty))
+first_name|last_name((ends))doe - Return all records where the first and last name ends with doe (case-insensitive).
+
+first_name((nempty)) - Return all records where the first name is not empty.
+
+### URI GET parameter example
+
+http://example.com/api/v01/entity?pn[]=first_name((nempty))&pn[]=last_name((eq))jones&pn[]=((limit))100&pn[]=((offset))15
+* Where the first name is not empty
+* AND where the last name equals jones
+* return 100 records
+* starting at record 15
+
 
 
 ## Definition
@@ -33,7 +44,7 @@ Periscope Notation is a structured filter notation for API queries. Periscope no
 
 ## Notation Parts:
 ### The property - Left Part
-The property contains the name of the entity property being queried. An example would be the "First Name" of a User entity. If the entity property is using snake case, the left part would be "first_name". Multiple properties can be used as a boolean "OR" and use the same operator and value by delimiting the properties with the pipe delimiter. For example, if searching for the first name "John" or the last name "John" the property would be "first_name|last_name".  See the rules below for more information on the property part.
+The property contains the name of the entity property being queried. An example would be the "First Name" of a User entity. If the entity property is using snake case, the left part would be "first_name". Multiple properties can be used as a boolean "OR" and use the same operator and value by delimiting the properties with the pipe delimiter. For example, if searching for the first name "John" or the last name "John" the property would be "first_name|last_name".  See the rules below for more information on the property part. A couple operators have an implicit property name and is not used. See "limit" for an example.
 
 ### The operator - Middle Part
 The operator defines how the property is filtered. Most operators will require a value, which is found in the right part. An example of an operator that requires a value is the equals operator represented by "eq". Some operators have an implied value and the right part is not required. An example of an operator with an implied value is the not empty operator. See the rules below for more information on the operator part.
@@ -181,10 +192,18 @@ last_name((eq))jones + date_created((gt))1970-01-01 would return only record 3.
 date_created((between))1970-01-01,1990-01-01
 
 
+## Related Projects
 
+### PHP
+* Periscope Notation - PHP Parser  (coming soon)
+* Periscope Notation - Doctrine Query Builder Filter  (coming soon)
+* Periscope Notation - PHP Array Filter (coming soon)
 
+### NodeJS
+* Periscope Notation - NodeJS Parser (coming soon)
 
-
+### Java
+* Periscope Notation - Java Parser (coming soon)
 
 
 
