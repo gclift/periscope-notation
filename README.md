@@ -121,6 +121,8 @@ Multiple values can be used in one filster string and the filter would use a boo
 
 Complex filter strings can be used together to build a complex filter. If a property is included in more than one filter string then the filter would use the boolean OR to search for matching data. If more than one property is found in the multiple filter strings then the boolean AND will be used and only data that matches all property filters will be returned.
 
+Some operators require two values. Multiple values for an operator are delimited with commas. See the between operator as an example.
+
 ## FAQs
 **Why the name Periscope?**
 The notation when using the tripartite operators looks like a submarine's periscope handle and viewport.
@@ -154,6 +156,8 @@ first_name((eq))tom|thomas would return records 1 and 2
 last_name((starts))jone would return records 1 and 3
 
 last_name((eq))jones + date_created((gt))1970-01-01 would return only record 3.
+
+date_created((between))1970-01-01,1990-01-01
 
 
 
