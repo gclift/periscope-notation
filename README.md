@@ -1,4 +1,4 @@
-# Periscope Notation
+# Periscope((is))Notation
 _The structured filter notation for API queries._
 
 **Author:** [Gary Clift](https://github.com/gclift)
@@ -56,59 +56,76 @@ There are three types of operators. The standard set operators are required by t
 ### Standard Set of Operators:
 **eq** - equals
 
-``EXAMPLE: `x` == "y"``
+``x((eq))y --> `x` == "y"``
 
 **not** - not equals
 
-``EXAMPLE: `x` != "y"``
+``x((not))y --> `x` != "y"``
 
 **contains** - contains
 
-``EXAMPLE: `x` LIKE "%y%"``
+``x((contains))y --> `x` LIKE "%y%"``
 
 **starts** - starts with
 
-``EXAMPLE: `x` LIKE "y%"``
+``x((starts))y --> `x` LIKE "y%"``
 
 **ends** - ends with
 
-``EXAMPLE: `x` LIKE "%y"``
+``x((ends))y --> `x` LIKE "%y"``
 
 **gt** - greater than
 
-``EXAMPLE: `x` > "y"``
+``x((gt))y --> `x` > "y"``
 
 **gte** - greater than or equal to
 
-``EXAMPLE: `x` >= "y"``
+``x((gte))y --> `x` >= "y"``
 
 **lt** - less than
 
-``EXAMPLE: `x` < "y"``
+``x((lt))y --> `x` < "y"``
 
 **lte** - less than or equal to
 
-``EXAMPLE: `x` <= "y"``
+``x((lte))y --> `x` <= "y"``
 
 **in** - in
 
-``EXAMPLE: `x` IN (y1, y2, y3)``
+``x((in))y --> `x` IN (y1, y2, y3)``
 
 **nin** - not in
 
-``EXAMPLE: `x` NOT IN (y1, y2, y3)``
+``x((nin))y --> `x` NOT IN (y1, y2, y3)``
 
 **between** - between
 
-``EXAMPLE: `x` >= "y1" AND `x` <= "y2"``
+``x((between))y --> `x` >= "y1" AND `x` <= "y2"``
 
 **empty** - empty
 
-``EXAMPLE: `x` IS NULL OR `x` == ""``
+``x((empty)) --> `x` IS NULL OR `x` == ""``
 
 **nempty** - not empty
 
-``EXAMPLE: `x` IS NOT NULL AND `x` != ""``
+``x((nempty)) --> `x` IS NOT NULL AND `x` != ""``
+
+**asc** - order by ascending values
+
+``x((asc)) --> ORDER BY `x` ASC``
+
+**desc** - order by descending values
+
+``x((desc)) --> ORDER BY `x` DESC``
+
+**offset** - The record value to start in pagination
+
+``((offset))15 --> LIMIT 15``
+
+**limit** - order by descending values
+
+``((limit))100 --> LIMIT 15,100``
+
 
 
 ###Enhanced Set of Operators:
@@ -129,10 +146,14 @@ The notation when using the tripartite operators looks like a submarine's perisc
 
 ![Periscope by Taylor Vatem from unsplash](https://images.unsplash.com/photo-1625578525732-4078f41c567d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80)
 
+_Periscope photo by Taylor Vatem from unsplash_
+
 **Can I use open and close parentheses in the query part of a URI?**
 
 According to the RFC 3986 by the god himself, Tim Berners-Lee, the open and close parentheses are considered "sub-delims", but have no meaning in the path or query part of the URI. _Is this debatable? Yes._
 
+## Limitations
+Since the spec rules declare that if two filter strings use the same property then the filter will OR the results, it's not possible to define two different filters for the same property and AND the filter. So, first_name((eq))john + first_name((neq))johnathan cannot be represented by first_name == 'john' AND first_name != 'johnathan'.
 
 ## Examples
 ### Data
