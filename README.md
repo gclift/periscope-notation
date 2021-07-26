@@ -18,7 +18,7 @@ _The structured filter notation for API queries._
 * A notation that is computer friendly. Computers can easily parse the filter string and filter a large set of data. A set of open source projects for different programming languages will be available for easy adoption by API architects.
 * A notation that is programming language agnostic and evolutionary. A notation can work with any programming language and can evolve and adapt to the ever-changing technical world.
 
-##Quick Start
+## Quick Start
 first_name((eq))john
 
 first_name((starts))jo
@@ -28,32 +28,32 @@ first_name|last_name((ends))doe
 first_name((nempty))
 
 
-##Definition
+## Definition
 Periscope Notation is a structured filter notation for API queries. Periscope notation contains two (bipartite) or three (tripartite) parts depending on the operator being used to filter. The left part of the notation is always the property. The center part is always the operator. For operators who don't have an implicit value, the right part is always the value.
 
-##Notation Parts:
-###The property - Left Part
+## Notation Parts:
+### The property - Left Part
 The property contains the name of the entity property being queried. An example would be the "First Name" of a User entity. If the entity property is using snake case, the left part would be "first_name". Multiple properties can be used as a boolean "OR" and use the same operator and value by delimiting the properties with the pipe delimiter. For example, if searching for the first name "John" or the last name "John" the property would be "first_name|last_name".  See the rules below for more information on the property part.
 
-###The operator - Middle Part
+### The operator - Middle Part
 The operator defines how the property is filtered. Most operators will require a value, which is found in the right part. An example of an operator that requires a value is the equals operator represented by "eq". Some operators have an implied value and the right part is not required. An example of an operator with an implied value is the not empty operator. See the rules below for more information on the operator part.
 
-###The value - Right Part
+### The value - Right Part
 The value part of the notation represents the value of the entity's property being filtered. If the filter is to find the first name of a user named John, then the value would be the string john. See the rules below for more information on the value part.
 
-##Periscope Notation Rules
+## Periscope Notation Rules
 
-###Property Rules
+### Property Rules
 The case of the property is case-sensitive and the case format must match the return value format. For example, if you request first_name then the resulting data must have a property called "first_name" and not firstName or FirstName.
 
 Multiple properties may be used and delimited by the pipe delimiter. The property "first_name|last_name" would be used if you want to search by first_name OR last_name.
 
 The property must be in the resulting set of data returned from the API to the consumer.
 
-###Operator Rules
+### Operator Rules
 There are three types of operators. The standard set operators are required by the producer APIs and must implement the standard set operators for properties that use Periscope Notation. The extended set of operators are optional operators the producer API may or may not implement. It is assumed they are not implemented unless otherwise documented. Producer APIs may include additional custom operators and must provide the documentation to the client developers.
 
-###Standard Set of Operators:
+### Standard Set of Operators:
 **eq** - equals
 
 ``EXAMPLE: `x` == "y"``
@@ -114,14 +114,14 @@ There are three types of operators. The standard set operators are required by t
 ###Enhanced Set of Operators:
 _Coming soon_
 
-###Value Rules
+### Value Rules
 The value is required for operators that do not have an implied value. The value is case-insensitive.
 
 Multiple values can be used in one filster string and the filter would use a boolean OR to filter the data. For example, the value "john|johnathan" would search for john OR jonathan.
 
 Complex filter strings can be used together to build a complex filter. If a property is included in more than one filter string then the filter would use the boolean OR to search for matching data. If more than one property is found in the multiple filter strings then the boolean AND will be used and only data that matches all property filters will be returned.
 
-##FAQs
+## FAQs
 **Why the name Periscope?**
 The notation when using the tripartite operators looks like a submarine's periscope handle and viewport.
 
@@ -132,8 +132,8 @@ The notation when using the tripartite operators looks like a submarine's perisc
 According to the RFC 3986 by the god himself, Tim Berners-Lee, the open and close parentheses are considered "sub-delims", but have no meaning in the path or query part of the URI. _Is this debatable? Yes._
 
 
-##Examples
-###Data
+## Examples
+### Data
 _Record 1_
 first_name: "Tom"
 last_name: "Jones"
