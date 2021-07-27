@@ -1,4 +1,4 @@
-# Periscope((is))Notation
+# Periscope((api))Notation
 _The structured filter notation for API queries._
 
 **Author:** [Gary Clift](https://github.com/gclift)
@@ -9,9 +9,13 @@ _The structured filter notation for API queries._
 
 ![Creative Commons Attribution-Share Alike](https://smartcopying.edu.au/wp-content/uploads/2020/03/image3.jpg "Creative Commons Attribution-Share Alike")
 
-**Status:** Super Early Draft (Updated 2021-07-26)
+**Status:** Super Early Draft (Updated 2021-07-27)
 
-**Motivation:** After consuming data from APIs for almost 20 years, I've grown tired of APIs having different filter formats for filtering result data. We need a common way to request data from the world's ever-increasing number of API systems.
+**Roadmap::**
+* Sept 1st, 2021 - First Draft
+* January 1st, 2022 - First Version
+
+**Motivation:** After consuming data from APIs for almost 20 years, I've grown tired of APIs having different filter formats for result data. We need a common way to request data from the world's ever-increasing number of API systems.
 
 **Goals:**
 * A notation that is human friendly. Easy syntax and human readability will lead to faster API adoption and fewer bugs in consuming code bases.
@@ -205,6 +209,8 @@ date_created((between))1970-01-01,1990-01-01
 ### Java
 * Periscope Notation - Java Parser (coming soon)
 
+## APIs Using PeriscopeNotation
+* Please add known APIs using the PeriscopeNotation
 
 
 
