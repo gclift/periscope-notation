@@ -9,9 +9,10 @@ _The structured filter notation for API queries._
 
 ![Creative Commons Attribution-Share Alike](https://smartcopying.edu.au/wp-content/uploads/2020/03/image3.jpg "Creative Commons Attribution-Share Alike")
 
-**Status:** Super Early Draft (Updated 2021-07-27)
+**Status:** Request for comments (Updated 2021-07-27)
 
-**Roadmap::**
+**Roadmap**
+* **August 1st, 2021** - Initial comment gathering
 * Sept 1st, 2021 - First Draft
 * January 1st, 2022 - First Version
 
