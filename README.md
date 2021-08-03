@@ -11,7 +11,7 @@ _The structured filter notation for API queries._
 
 **Status:** [Request for comments](https://github.com/gclift/periscope-notation/discussions) (Updated 2021-07-27)
 
-
+![Periscope Notation Logo](resources/img/PeriscopeNotationLogo.jpeg)
 
 **Roadmap**
 * **August 1st, 2021** - Initial comment gathering
