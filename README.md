@@ -146,8 +146,11 @@ There are three types of operators. The standard set operators are required by t
 
 
 
-###Enhanced Set of Operators:
-_Coming soon_
+### Enhanced Set of Operators:
+
+**mask** - filter with a bitmask
+
+``x((mask))y --> `x` & y ``
 
 ### Value Rules
 The value is required for operators that do not have an implied value. The value is case-insensitive.
