@@ -32,7 +32,7 @@ first_name((eq))john - Return all records where the first name equals John (case
 
 first_name((starts))jo - Return all records where the first name starts with Jo (case-insensitive)
 
-first_name|last_name((ends))doe - Return all records where the first and last name ends with doe (case-insensitive).
+first_name|last_name((ends))doe - Return all records where the first OR last name ends with doe (case-insensitive).
 
 first_name((nempty)) - Return all records where the first name is not empty.
 
